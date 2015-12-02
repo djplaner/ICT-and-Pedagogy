@@ -1,0 +1,29 @@
+
+
+
+<div class="mg-book"  -- change this to an id?
+
+selector to get 
+  div class = mg-book_chapter which has data-pagenum and data-title
+            && data-subchapter
+change
+  <h1 id to be mg-pagenum -- this could be done with jQuery
+
+
+
+<script>
+
+$("#toc").append('<p>ToC:</p>')
+
+# change this selector t
+$("div.mg-book_chapter").each(function(i) {
+    var current = $(this);
+    //-- set the id for the h1 element first parent of current
+    current.attr("id", "chapter" + i);
+    ch_title = current.attr( "data-title" );
+
+    // add a link to the toc
+    $("#toc").append("<a id='link" + i + "' href='#chapter" +
+        i + "' title='" + current.attr("tagName") + "'>" + 
+        current.html() + "</a>");
+});
